@@ -1,0 +1,70 @@
+const express = require("express");
+const app = express();
+const port = 3001;
+
+// support view handlebars
+app.set("view engine", "hbs");
+app.set("views", "views");
+app.use("/assets", express.static("assets"));
+
+//body parser
+app.use(express.urlencoded({ extended: false }));
+
+//rooting
+app.get("/contact-page", contact);
+app.get("/project-page", projectAdd);
+app.get("/detail-project/:id", projectDetail);
+app.get("/home", homePage);
+app.post("/project-page", addProject);
+
+// button edit and delete
+app.get("/delete-project/:id", deleteProject);
+app.get("/edit-project/:id");
+app.post("/edit-project/:id", editProject);
+
+const data = [];
+function homePage(req, res) {
+  res.render("home-page", { data });
+}
+
+function contact(req, res) {
+  res.render("contact-page");
+}
+
+function projectAdd(req, res) {
+  res.render("project-page");
+}
+
+function projectDetail(req, res) {
+  const id = req.params.id;
+
+  console.log("id params:", id);
+  res.render("detail-project", { id });
+}
+
+function addProject(req, res) {
+  const { title, startDate, endDate, description } = req.body;
+  data.push({ title, startDate, endDate, description });
+
+  console.log("berhasil upload data");
+  res.redirect("/home");
+}
+
+function deleteProject(req, res) {
+  const { id } = req.params;
+
+  data.splice(id, 1);
+  res.redirect("/home");
+}
+
+function editProject(req, res) {
+  const { id } = req.params;
+  const { title, startDate, endDate, description } = req.body;
+
+  data.splice(id, 0, { title, startDate, endDate, description });
+  res.redirect("/project-page");
+}
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});

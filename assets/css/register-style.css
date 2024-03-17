@@ -1,0 +1,15 @@
+.name-box,
+.email-box,
+.password-box {
+  width: 500px;
+  height: 50px;
+  border: none;
+}
+
+.btn-submit {
+  margin-left: 200px;
+}
+
+.btn-submit button {
+  width: 120px;
+}

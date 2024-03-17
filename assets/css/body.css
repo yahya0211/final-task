@@ -1,0 +1,17 @@
+.margin-card {
+  margin: 2%;
+  background-color: rgb(252, 252, 252);
+  border-radius: 10px;
+  box-shadow: 2px 1px 2px gray;
+}
+
+.margin-photo {
+  background-color: rgb(248, 245, 245) !important;
+  border-radius: 10px;
+}
+
+.author {
+  color: grey;
+  text-align: end;
+  font-size: 12px;
+}

@@ -1,0 +1,103 @@
+/* Set default */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+/* Navbar */
+nav {
+  background-color: #ebeaea;
+  display: flex;
+  align-items: center;
+  height: 10vh;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+
+nav ul li {
+  margin-right: 25px;
+  font-size: 20px;
+}
+
+nav ul li .active {
+  color: orangered;
+}
+
+.nav-left {
+  flex: 50%;
+  /* mengatur lebar */
+}
+
+.nav-right {
+  flex: 50%;
+  text-align: end;
+  margin-right: 25px;
+}
+
+.nav-right a {
+  background-color: black;
+  padding: 8px 20px;
+  color: white;
+  border-radius: 5px;
+}
+
+.hamburger-bars {
+  padding-right: 20px;
+  display: none;
+}
+
+.navbar-menu {
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  background-color: rgb(211, 211, 211);
+  display: none;
+}
+
+.navbar-menu ul {
+  padding: 10px;
+  margin: 10px;
+  list-style: none;
+}
+
+.navbar-menu ul li {
+  padding-top: 10px;
+}
+
+.navbar-menu ul .contact-hamburger a {
+  background-color: black;
+  color: white;
+  padding: 4px 20px;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    background-color: rgb(244, 243, 243);
+    justify-items: center;
+  }
+
+  .nav-left .home-nav,
+  .nav-left .blog-nav,
+  .testi-nav,
+  .nav-right {
+    display: none;
+  }
+
+  .hamburger-bars {
+    display: block;
+  }
+}
